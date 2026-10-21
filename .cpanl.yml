@@ -1,8 +1,0 @@
----
-deployment:
-  tasks:
-    - 'test -e /home/inspirex/.ssh/github_deploy || ssh-keygen -q -t ed25519 -N "" -C "cpanel-cp01-github" -f /home/inspirex/.ssh/github_deploy'
-    - 'grep -qs "IdentityFile ~/.ssh/github_deploy" /home/inspirex/.ssh/config || printf "\nHost github.com\n  IdentityFile ~/.ssh/github_deploy\n  IdentitiesOnly yes\n" >> /home/inspirex/.ssh/config'
-    - 'chmod 600 /home/inspirex/.ssh/config'
-    - 'cp /home/inspirex/.ssh/github_deploy.pub /home/inspirex/cheia_github_publica.txt'
-    - 'if [ -e /home/inspirex/.ssh/id_rsa.1792603920 ]; then mv /home/inspirex/.ssh/id_rsa /home/inspirex/.ssh/id_rsa.generata_cu_parola; mv /home/inspirex/.ssh/id_rsa.pub /home/inspirex/.ssh/id_rsa.generata_cu_parola.pub; mv /home/inspirex/.ssh/id_rsa.1792603920 /home/inspirex/.ssh/id_rsa; mv /home/inspirex/.ssh/id_rsa.1792603920.pub /home/inspirex/.ssh/id_rsa.pub; fi'
